@@ -1,5 +1,5 @@
 const Alumno = require('../models/alumno');
-const Role = require();
+const Role = require('../models/role');
 
 
 const existenteEmail = async (correo = '') => {
