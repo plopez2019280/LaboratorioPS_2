@@ -1,78 +1,78 @@
 const bcryptjs = require('bcryptjs');
-const Student = require('../models/alumno');
+const Student = require('../models/student');
 
-const alumnoGet = async(req, res = response) => {
+const studentGet = async(req, res = response) => {
     const { limite, desde } = req.query;
     const query = { estado: true };
 
     const [total, student] = await Promise.all([
-        Alumno.countDocuments(query),
-        Alumno.find(query)
+        Student.countDocuments(query),
+        Student.find(query)
         .skip(Number(desde))
         .limit(Number(limite))
     ]);
 
     res.status(200).json({
         total,
-        alumno
+        student
     });
 }
 
-const getAlumnoById = async(req, res) => {
+const getStudentById = async(req, res) => {
     const { id } = req.params;
-    const alumno = await Alumno.findOne({ _id: id });
+    const student = await Student.findOne({ _id: id });
 
     res.status(200).json({
-        alumno
+        student
     });
 }
 
-const alumnoPut = async(req, res = response) => {
+const putStudent = async(req, res = response) => {
     const { id } = req.params;
-    const { _id, password, role, ...resto } = req.body
+    const { _id, password, google, role, ...resto } = req.body
 
     if (password) {
         const salt = bcryptjs.genSaltSync();
         resto.password = bcryptjs.hashSync(password, salt);
     }
 
-    const alumno = await Student.findByIdAndUpdate(id, resto);
+    const student = await Student.findByIdAndUpdate(id, resto);
 
     res.status(200).json({
         msg: 'Estudiante Actualizado Exitosamente',
-        alumno
+        student
     });
 }
 
-const alumnoDelete = async(req, res) => {
+const studentDelete = async(req, res) => {
     const { id } = req.params;
-    const alumno = await Alumno.findByIdAndUpdate(id, { estado: false });
+    const student = await Student.findByIdAndUpdate(id, { estado: false });
 
     res.status(200).json({
         msg: 'Estudiante eliminado exitosamente',
-        alumno
+        student
     });
 }
 
-const alumnoPost = async(req, res) => {
+const studentPost = async(req, res) => {
     const { nombre, correo, password, curso, role } = req.body;
     const student = new Student({ nombre, correo, password, curso, role });
 
     const salt = bcryptjs.genSaltSync();
     console.log(password);
-    alumno.password = bcryptjs.hashSync(password, salt);
+    student.password = bcryptjs.hashSync(password, salt);
 
-    await alumno.save();
+    await student.save();
     console.log({ nombre, correo, password, curso, role })
     res.status(202).json({
-        alumno
+        student
     });
 }
 
 module.exports = {
-    alumnoPost,
-    alumnoGet,
-    alumnoDelete,
-    getAlumnoById,
-    alumnoPut
+    studentPost,
+    getStudentById,
+    putStudent,
+    studentGet,
+    studentDelete
 }
