@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Maestros",
+    "dateExported": "2024-02-19T02:21:00.520Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bfe4cf91-c156-4d8e-82a3-627f64e70e94",
+            "colId": "0e7a9391-6d0f-4d43-86b8-7a30a887b7c5",
+            "containerId": "",
+            "name": "maestroPOST",
+            "url": "localhost:3000/api/teacher",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-19T01:43:48.376Z",
+            "modified": "2024-02-19T01:44:43.511Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Rony\",\n  \"correo\": \"ronycatalan@kinal.edu\",\n  \"password\": \"ronyconta\",\n  \"curso\": \"Contabilidad\",\n  \"role\": \"TEACHER_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dffc0aa3-f31c-49d8-993d-22f9b988c423",
+            "colId": "0e7a9391-6d0f-4d43-86b8-7a30a887b7c5",
+            "containerId": "",
+            "name": "maestroGET",
+            "url": "localhost:3000/api/teacher",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-19T01:45:23.921Z",
+            "modified": "2024-02-19T01:46:06.099Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3439d5dc-031e-4b84-8b08-530c63439f9b",
+            "colId": "0e7a9391-6d0f-4d43-86b8-7a30a887b7c5",
+            "containerId": "",
+            "name": "maestroPUT",
+            "url": "localhost:3000/api/teacher/65d2b28d4aaa31a0aab6991e",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-02-19T01:48:38.244Z",
+            "modified": "2024-02-19T01:49:48.698Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Rafael\",\n  \"correo\": \"rafaelwaldemar@kinal.edu\",\n  \"password\": \"megamente\",\n  \"curso\": \"Seminario\",\n  \"role\": \"TEACHER_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8662cbe0-bd52-465e-842e-b7bc11a1af74",
+            "colId": "0e7a9391-6d0f-4d43-86b8-7a30a887b7c5",
+            "containerId": "",
+            "name": "maestroDELETE",
+            "url": "localhost:3000/api/teacher/65d2b28d4aaa31a0aab6991e",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-19T01:50:04.266Z",
+            "modified": "2024-02-19T01:50:17.638Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
